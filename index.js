@@ -9,14 +9,14 @@ class TimeToComplete {
   //calculate time remaining;
   remaining(current, consoleLogProgress = false) {
     const now = Date.now();
-    const timeDifference = this.lastTime - now;
-    const difference = (this.destination) / (this.last - current);
+    const timeDifference = now - this.lastTime;
+    const difference = (this.destination) / (current - this.last);
 
     const timeToComplete = timeDifference * difference;
 
-    const seconds = Math.abs(timeToComplete / 1000);
-    const minutes = Math.abs(timeToComplete / 1000 / 60);
-    const hours = Math.abs(timeToComplete / 1000 / 60 / 60);
+    const seconds = timeToComplete / 1000;
+    const minutes = timeToComplete / 1000 / 60;
+    const hours = timeToComplete / 1000 / 60 / 60;
 
     if (consoleLogProgress) {
       console.log(`This process should be done in ${seconds} seconds.`)
@@ -35,12 +35,4 @@ class TimeToComplete {
   }
 }
 
-const time = new TimeToComplete(100);
-
-setTimeout(() => {
-  time.remaining(40, true);
-}, 1000)
-
-setTimeout(() => {
-  time.remaining(44, true);
-}, 2000)
+module.exports = TimeToComplete;
