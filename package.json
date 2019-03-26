@@ -1,6 +1,6 @@
 {
-  "name": "timetocomplete",
-  "version": "1.0.0",
+  "name": "TimeToComplete",
+  "version": "1.0.1",
   "description": "A package that'll help you determin how long a process is going to take to complete",
   "main": "index.js",
   "scripts": {
