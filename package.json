@@ -1,19 +1,45 @@
 {
   "name": "timetocomplete",
-  "version": "1.0.1",
-  "description": "A package that'll help you determin how long a process is going to take to complete",
-  "main": "index.js",
+  "version": "1.0.2",
+  "description": "Estimate how long a process will take to complete.",
+  "type": "commonjs",
+  "main": "./index.js",
+  "exports": {
+    ".": "./index.js"
+  },
+  "files": [
+    "index.js",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "engines": {
+    "node": ">=18.18"
+  },
   "scripts": {
-    "test": "npm test"
+    "check": "npm run lint && npm test && npm run pack:check",
+    "lint": "node --check index.js",
+    "pack:check": "npm pack --dry-run",
+    "prepublishOnly": "npm test",
+    "test": "node --test"
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/Streek/TimeToComplete.git"
+    "url": "git+https://github.com/Streek/TimeToComplete.git"
   },
   "author": "Keith Connolly",
   "license": "MIT",
+  "keywords": [
+    "duration",
+    "estimate",
+    "progress",
+    "time"
+  ],
   "bugs": {
     "url": "https://github.com/Streek/TimeToComplete/issues"
   },
-  "homepage": "https://github.com/Streek/TimeToComplete#readme"
+  "homepage": "https://github.com/Streek/TimeToComplete#readme",
+  "publishConfig": {
+    "provenance": true
+  }
 }

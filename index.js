@@ -1,12 +1,12 @@
-//calculate time remaining between now and completion in arbitrary amounts
+// Calculate the remaining time between progress updates.
 class TimeToComplete {
   constructor(destination) {
-    this.destination = destination || 100;
+    this.destination = destination ?? 100;
     this.last = 0;
     this.lastTime = Date.now();
   }
 
-  //calculate time remaining;
+  // Calculate time remaining and prepare for the next progress update.
   remaining(current, consoleLogProgress = false) {
     const now = Date.now();
     const timeDifference = now - this.lastTime;
@@ -19,14 +19,14 @@ class TimeToComplete {
     const hours = timeToComplete / 1000 / 60 / 60;
 
     if (consoleLogProgress) {
-      console.log(`This process should be done in ${seconds} seconds.`)
-      console.log(`This process should be done in ${minutes} minutes.`)
-      console.log(`This process should be done in ${hours} hours.`)
+      console.log(`This process should be done in ${seconds} seconds.`);
+      console.log(`This process should be done in ${minutes} minutes.`);
+      console.log(`This process should be done in ${hours} hours.`);
     }
 
-    //set for next run;
+    // Set the baseline for the next run.
     this.lastTime = now;
-    this.last = current
+    this.last = current;
     return {
       seconds,
       minutes,
